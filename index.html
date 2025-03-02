@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Pedra Papel Tesoura</title>
+</head>
+<body>
+    <div class="container-game">
+        <h1>Pedra Papel Tesoura</h1>
+        
+        <div class="container-button">
+            <button onclick="
+            
+                playerGame('pedra');
+            
+            ">Pedra</button>
+
+            <button onclick="
+            
+                playerGame('papel');
+            
+            ">Papel</button>
+
+            <button onclick="
+            
+            
+                playerGame('tesoura');
+            
+            ">Tesoura</button>
+
+        </div>
+    </div>
+    
+    <script>
+        
+        
+        function playerGame(choiceUser){
+            const computerPick = getComputerPick()
+            let result = '';
+            if(choiceUser === 'pedra'){
+                if(computerPick === choiceUser){
+                    result = 'Empate';
+
+                }else if (computerPick === 'tesoura'){
+                    result = 'Vitoria';
+
+                }else if(computerPick === 'papel'){
+                    result = 'Derrota';
+
+                }
+
+            }else if (choiceUser === 'papel'){
+                if(computerPick === choiceUser){
+                    result = 'Empate';
+
+                }else if (computerPick === 'tesoura'){
+                    result = 'Derrota';
+
+                }else if(computerPick === 'pedra'){
+                    result = 'Vitoria';
+
+                }
+            }else if(choiceUser === 'tesoura'){
+                if(computerPick === choiceUser){
+                    result = 'Empate';
+
+                }else if(computerPick === 'pedra'){
+                    result = 'Derrota'
+                }else if(computerPick === 'papel'){
+                    result = 'Vitoria'
+
+                }
+
+            }
+            alert(`Você escolheu ${choiceUser}. O computador escolheu ${computerPick}. ${result}`);
+
+        }
+
+        function getComputerPick(){
+            const number = Math.random();
+            let computerPick = '';
+            
+            //0.............1
+            if(number >= 0 && number < 1/3){
+                computerPick = 'pedra'
+
+            }else if(number >= 1/3 && number < 2/3){
+                computerPick = 'papel'
+
+            }else if(number >= 2/3 && number < 1){
+                computerPick = 'tesoura'
+
+            }
+            return computerPick;
+        }
+
+    </script>
+    
+</body>
+</html>
